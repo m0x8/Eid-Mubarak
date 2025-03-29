@@ -1,47 +1,71 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>صفحة تسجيل الدخول</title>
+    <title>Password Check</title>
     <style>
         body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
             font-family: Arial, sans-serif;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             text-align: center;
-            margin-top: 100px;
-            direction: rtl;
+            width: 90%;
+            max-width: 400px;
         }
         input {
+            width: 100%;
             padding: 10px;
-            font-size: 16px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
         button {
+            width: 100%;
             padding: 10px;
-            font-size: 16px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
             cursor: pointer;
         }
-        .error {
-            color: red;
+        button:hover {
+            background: #218838;
+        }
+        #message {
             margin-top: 10px;
-            font-size: 18px;
+            color: red;
         }
     </style>
-</head>
-<body>
-    <h2>أدخل كلمة المرور</h2>
-    <input type="password" id="passwordInput" placeholder="كلمة المرور">
-    <button onclick="checkPassword()">دخول</button>
-    <p id="errorMessage" class="error"></p>
-    
     <script>
         function checkPassword() {
-            var password = document.getElementById("passwordInput").value;
-            if (password === "Aya200@") {
-                window.location.href = "second_page.html";
+            var password = document.getElementById("password").value;
+            var correctPassword = "aya2001@";
+            var message = document.getElementById("message");
+            
+            if (password === correctPassword) {
+                window.location.href = "second.html";
             } else {
-                document.getElementById("errorMessage").innerText = "عيب والله";
+                message.innerHTML = "Your password was wrong, try again.";
             }
         }
     </script>
+</head>
+<body>
+    <div class="container">
+        <h2>Enter Your Password</h2>
+        <input type="password" id="password" placeholder="Enter password">
+        <button onclick="checkPassword()">Submit</button>
+        <p id="message"></p>
+    </div>
 </body>
 </html>
